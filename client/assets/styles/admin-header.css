@@ -1,0 +1,22 @@
+.header {
+  position: fixed;
+  z-index: 99999;
+  height: 40px;
+  background-color: black;
+  width: 100%;
+  top: 0px;
+}
+
+.header img {
+  width: 30px;
+  padding-top: 10px;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+a.logout {
+  padding-top: 10px;
+  display: block;
+  color: white;
+  text-decoration: none;
+}

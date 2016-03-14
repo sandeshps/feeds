@@ -1,0 +1,122 @@
+<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+  <div class=' col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+    <div class='addhandler'>
+    <h1>
+      Add handler sources
+    </h1>
+    <hr/>
+    <section>
+      <div>
+        <label>
+          Handler
+        </label>
+      </div>
+      <div>
+        <input type='text' placeholder="twitter, instagram ..." ng-model='handler'/>
+      </div>
+      <div>
+        <button class='btn btn-primary' ng-click='saveHandler();'>Save</button>
+      </div>
+      <div>
+        <p class='notification'>
+          {{notification}}
+        </p>
+      </div>
+    </section>
+  </div>
+  </div>
+
+  <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+    <div class='add-key-value'>
+    <h1>
+      Add handler-handle
+    </h1>
+    <hr/>
+    <section>
+      <div>
+        <label>
+          Handler
+        </label>
+      </div>
+      <div class='dropdown-options'>
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="search_handle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <!-- {{option_value}} -->
+            <span class='text'>Select</span>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id='options-dropdown'>
+            <li><a href="#" id='search'>Search</a></li>
+            <li><a href="#" id='handle'>Handle</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class='handle-section' ng-show='handles'>
+        <label>
+          Handle source
+        </label>
+        <div>
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="handler_source" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span id='hsource'>Select</span>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu handler_source" aria-labelledby="dropdownMenu1" id='handle-options'>
+              <li ng-repeat = 'value in allhandles'>
+                <a href='#' ng-click='selectHandleSource(value.source);'>{{value.source}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div>
+        <input type='text' placeholder="search term, handle name" ng-model='sh_value'/>
+      </div>
+      <div>
+        <button class='btn btn-primary' ng-click='saveKeyValue();'>Save</button>
+      </div>
+      <div>
+        <p class='notification'>
+          {{key_value_notification}}
+        </p>
+      </div>
+    </section>
+
+  </div>
+  </div>
+
+
+  <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+    <div class='key-value-pairs' ng-show='loaded_key_value'>
+      <table>
+        <tr>
+          <th>
+            Key
+          </th>
+          <th>
+            Value
+          </th>
+          <th>
+            Delete
+          </th>
+        </tr>
+        <tr ng-repeat='object in allKeyValues' class='settings'>
+          <td once-text="object.key">
+            <!-- {{object.key}} -->
+          </td>
+          <td once-text="object.value">
+            <!-- {{object.value}} -->
+          </td>
+          <td>
+            <a href='javascript:void(0);' ng-click='deleteKeyValue(object._id)'>
+              <img src='../assets/images/delete.png'/>
+            </a>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+
+
+</div>

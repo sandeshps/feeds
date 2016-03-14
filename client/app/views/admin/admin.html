@@ -1,0 +1,50 @@
+<!-- <div ng-include="views/admin/admin-header.html"></div> -->
+
+<div class='header'>
+  <div class='container'>
+  <div class='float-right' ng-show='loggedin'>
+    <a class='logout' href='/logout'>Logout</a>
+  </div>
+  <div class='visible-xs col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+    <img id='menu' class='mobile_menu' src='../assets/images/mobile_menu.png'/>
+  </div>
+  </div>
+</div>
+
+<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+  <div class=''>
+  <nav class='left-side-bar'>
+    <ul class='list-group'>
+      <a class='list-group-item' href='#' ui-sref='admin'>
+        Home
+      </a>
+      <a class='list-group-item' href='#' ui-sref='dashboard'>
+        Dashboard
+      </a>
+      <a class='list-group-item' href='#' ui-sref='datafetch'>
+        Data fetch
+      </a>
+    </ul>
+  </nav>
+  <section class='dashboard'>
+    <div ui-view>
+      <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+        <div class='default-dashboard'>
+          <h2>
+            Welcome to Dashboard
+          </h2>
+          <h3>
+            Please click on left links to navigate
+          </h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+</div>
+
+<script>
+  $('#menu').on('click', function () {
+    $('.left-side-bar').toggle();
+  })
+</script>

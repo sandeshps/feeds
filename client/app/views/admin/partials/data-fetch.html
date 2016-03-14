@@ -1,0 +1,52 @@
+<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+  <div class='data-fetch'>
+    <label>
+      Select
+    </label>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="key_value" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <span id='key_value_source'>Select</span>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id='options_api'>
+        <li ng-repeat = 'value in allKeyValues'>
+          <a href='#' ng-click='fetchData(value);'>{{value}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class='data-holder'>
+      <div class='text-align-center col-lg-12 col-md-12 col-sm-12 col-xs-12' ng-show='loading'>
+        <img src='../assets/images/loading_text.gif'/>
+        <!-- <img src='../assets/images/loader.gif'/> -->
+      </div>
+      <div class='error-message' ng-show='error'>
+        <h2>
+          Error fetching the data. Please try again!
+        </h2>
+      </div>
+      <div class='cards-holder col-lg-12 col-md-12 col-sm-12 col-xs-12' ng-hide='loading'>
+        <div class='each-card' ng-repeat='data in allData'>
+          <img ng-if="data.source === 'instagram'" ng-src='{{data.image.url}}'/>
+          <img ng-if="data.source !== 'instagram'" ng-src='{{data.image}}'/>
+          <h1>
+            <a href='{{data.url}}' target="_blank">
+              {{data.title.substring(0,100)}}
+            </a>
+          </h1>
+          <p>
+            {{data.description.substring(0,150)}}
+          </p>
+          <p>
+            <b>Source:</b> {{data.source}}
+          </p>
+          <div class='float-right accept-reject'>
+            <img ng-if="data.status !== 'approved'" ng-src='../assets/images/accept.png' ng-click='approve(data);'/>
+            <!-- <img ng-if="data.status === 'approved'" ng-src='../assets/images/reject.png' ng-click='reject(data);'/> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

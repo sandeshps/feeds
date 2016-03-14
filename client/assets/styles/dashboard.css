@@ -1,0 +1,214 @@
+.left-side-bar {
+  position: fixed;
+  background-color: black;
+  z-index: 5;
+  left: 225px;
+  top: 0px;
+  height: 100vh;
+  width: 225px;
+  margin-left: -225px;
+  padding-top: 60px;
+  text-align: center;
+  overflow-y: auto;
+}
+
+.slide-from-left {
+  transform: translateX(-150px);
+  animation: come-from-left 0.8s ease forwards;
+}
+
+.slide-to-left {
+  transform: translateX(0px);
+  animation: come-from-left 0.8s ease forwards;
+}
+
+@media (max-width : 768px)  {
+  .left-side-bar {
+    display: none;
+    /*transform: translateX(-150px);
+    animation: come-from-left 0.8s ease forwards;*/
+    /*left: 0px !important;*/
+  }
+
+  .dashboard {
+    margin-left: 0px !important;
+  }
+}
+
+@keyframes come-from-left {
+  to { transform: translateX(0); }
+}
+
+.left-side-bar a:hover {
+  color: rgb(52,221,221) !important;;
+}
+
+
+
+.dashboard {
+  height: 100vh;
+  overflow-y: auto;
+  margin: 50px 0 0 225px;
+  padding: 10px;
+  -ms-overflow-x: hidden;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
+  /*box-shadow: 0px 0px 1px 1px lightgray;*/
+  padding-bottom: 40px;
+  border-radius: 5px;
+}
+
+.list-group-item {
+  background-color: black !important;
+  border: none !important;
+  color: white !important;
+}
+
+.addhandler {
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  box-shadow: 0px 0px 0px 1px gray;
+  border-radius: 7px;
+  transform: translateY(150px);
+  animation: come-in 0.8s ease forwards;
+}
+
+p.notification {
+  color: red;
+  margin-top: 5px;
+}
+
+
+.add-key-value {
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-right: 20px;
+  box-shadow: 0px 0px 0px 1px gray;
+  border-radius: 7px;
+  transform: translateY(150px);
+  animation: come-in 1.5s ease forwards;
+}
+
+.addhandler, .add-key-value {
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 25px !important;
+}
+
+label {
+  margin-bottom: 10px !important;
+}
+
+input {
+  margin-bottom: 10px !important;
+}
+
+
+@keyframes come-in {
+  to { transform: translateY(0); }
+}
+
+.dropdown {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: center !important;
+  border: 1px solid #ccc;
+  background-color: rgba(0, 196, 255, 0.35);
+  height: 30px;
+}
+
+td {
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.key-value-pairs {
+  margin-top: 80px;
+  transform: translateY(150px);
+  animation: come-in 0.7s ease forwards;
+}
+
+ul.handler_source {
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+
+tr.settings {
+  height: 40px;
+  background-color: rgba(0, 128, 0, 0.11);
+}
+
+td img {
+  width: 30px;
+}
+
+.cards-holder {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	-moz-column-width: 15em;
+ -webkit-column-width: 15em;
+ -moz-column-gap: 1em;
+ -webkit-column-gap: 1em;
+}
+
+.each-card {
+	display: inline-block;
+	margin:  0.25rem;
+	padding-left:  0px !important;
+	padding-right: 0px !important;
+	padding-bottom: 10px;
+	width:  100%;
+  border: 1px solid #ccc;
+}
+
+
+
+.each-card img {
+  width: 100%;
+}
+
+.each-card h1 {
+  word-wrap: break-word;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.each-card h1 a {
+  text-decoration: none !important;
+}
+
+.each-card p {
+  padding-left: 10px;
+  padding-right: 10px;
+  word-wrap: break-word;
+}
+
+.default-dashboard {
+  text-align: center;
+  padding-top: 20%;
+}
+
+.accept-reject img {
+  width: 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.error-message {
+  padding-top: 20%;
+  text-align: center;
+}
