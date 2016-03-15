@@ -30,6 +30,9 @@
               $scope.$apply();
             }
             else {
+              console.log(res);
+              $cookies.put('email', res.email);
+              $cookies.put('name', res.displayName);
               $cookies.put('loggedin', true);
               $location.path('/admin');
               $scope.$apply();
@@ -349,43 +352,47 @@
 
       }
 
-      function acceptReject() {
-        var allApiData = $scope.allData;
-        var allUrls = [];
-        for(var i=0; i<allApiData.length; i++) {
-          allUrls.push(allApiData.url);
-        }
-
-        Admin.getKos()
-          .then(function (response) {
-            for(var index=0; index<response.data.length; index++) {
-              for(var i=index; i<$scope.allData.length; i++) {
-                if(response.data[index].url === $scope.allData[i].url) {
-                  $scope.allData[i].status = 'approved';
-                }
-              }
-            }
-          })
-          .catch(function (error) {
-
-          });
-
-          console.log($scope.allData);
-          $timeout(function () {
-            $scope.$apply(function () {
-              $scope.allData = $scope.allData;
-            });
-          },100);
-
-      }
+      // function acceptReject() {
+      //   var allApiData = $scope.allData;
+      //   var allUrls = [];
+      //   for(var i=0; i<allApiData.length; i++) {
+      //     allUrls.push(allApiData.url);
+      //   }
+      //
+      //   Admin.getKos()
+      //     .then(function (response) {
+      //       for(var index=0; index<response.data.length; index++) {
+      //         for(var i=index; i<$scope.allData.length; i++) {
+      //           if(response.data[index].url === $scope.allData[i].url) {
+      //             $scope.allData[i].status = 'approved';
+      //           }
+      //         }
+      //       }
+      //     })
+      //     .catch(function (error) {
+      //
+      //     });
+      //
+      //     console.log($scope.allData);
+      //     $timeout(function () {
+      //       $scope.$apply(function () {
+      //         $scope.allData = $scope.allData;
+      //       });
+      //     },100);
+      //
+      // }
 
       $scope.approve = function (data) {
         var object = {};
         var details = data;
-        var koowner = $cookies.get('email');
+        var koowner = $cookies.get('name');
         object.title = details.title;
         object.description = details.description;
-        object.image = details.image;
+        if(details.source === 'instagram')
+          object.image = details.image.url;
+        else {
+          object.image = details.image;
+        }
         object.source = details.source;
         object.koowner = koowner;
         object.url = details.url;
@@ -394,7 +401,8 @@
         Admin.approveData(object)
           .then(function (response) {
             // $scope.$apply();
-            acceptReject();
+            // acceptReject();
+            console.log(response);
 
           })
           .catch(function (error) {
@@ -403,4 +411,26 @@
         // $scope.$apply();
       }
 
+    })
+    .controller('ListDataCtrl', function ($scope, User, $routeParams) {
+      var username = $routeParams.name;
+      var per_page = $routeParams.per_page;
+
+      var data = {
+        koowner : username,
+        page : per_page
+      }
+
+      console.log(data);
+
+      $scope.allData = [];
+
+      User.listAllData(data)
+        .then(function (response) {
+          console.log(response);
+          $scope.allData = response.data;
+        })
+        .catch(function (error) {
+
+        })
     })

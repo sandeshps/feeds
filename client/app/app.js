@@ -43,15 +43,25 @@ angular.module('feedsApp', [
   $routeProvider
     .when('/admin', {
       templateUrl : 'app/views/admin/admin.html',
-      controller : 'Admin.RulesCtrl'
+      controller : 'Admin.RulesCtrl',
+      resolve : {
+        loggedin : checkIfLoggedin
+      }
     })
     .when('/login', {
       templateUrl : 'app/views/login.html',
-      controller : 'LoginCtrl'
+      controller : 'LoginCtrl',
+      resolve : {
+        loggedin : checkIfLoggedin
+      }
     })
     .when('/logout', {
       templateUrl : 'app/views/login.html',
       controller : 'LogoutCtrl'
+    })
+    .when('/approved/:name/:per_page', {
+      templateUrl : 'app/views/listData.html',
+      controller : 'ListDataCtrl'
     })
     .otherwise({
       redirectTo: '/'
@@ -71,6 +81,20 @@ angular.module('feedsApp', [
         controller : 'Admin.ActivityCtrl'
       })
 
-
   $locationProvider.html5Mode(true);
 });
+
+
+
+
+var checkIfLoggedin = function($q, User, $location, $cookies) {
+	var deferred = $q.defer();
+	if($cookies.get('email') !== '' && $cookies.get('email') !== undefined) {
+		deferred.resolve();
+		$location.path('/admin');
+	}
+	else {
+		deferred.reject();
+		$location.path('/login');
+	}
+}

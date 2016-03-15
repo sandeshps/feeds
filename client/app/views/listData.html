@@ -1,0 +1,32 @@
+<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+  <div class='data-fetch'>
+
+    <div class='data-holder'>
+      <div class='text-align-center col-lg-12 col-md-12 col-sm-12 col-xs-12' ng-show='loading'>
+        <img src='../assets/images/loading_text.gif'/>
+      </div>
+      <div class='error-message' ng-show='error'>
+        <h2>
+          Error fetching the data. Please try again!
+        </h2>
+      </div>
+      <div class='cards-holder col-lg-12 col-md-12 col-sm-12 col-xs-12' ng-hide='loading'>
+        <div class='each-card' ng-repeat='data in allData'>
+          <img ng-src='{{data.image}}'/>
+          <h1>
+            <a href='{{data.url}}' target="_blank">
+              {{data.title.substring(0,100)}}
+            </a>
+          </h1>
+          <p>
+            {{data.description.substring(0,150)}}
+          </p>
+          <p>
+            <b>Source:</b> {{data.source}}
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

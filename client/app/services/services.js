@@ -25,6 +25,30 @@ angular.module('feedsApp')
   				deffered.reject(data);
   			});
   			return deffered.promise;
+      },
+
+      listAllData : function (data) {
+        var deffered = $q.defer();
+  			$http({
+  				method : 'GET',
+          // headers : {
+          //   "x-stamplay-jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcHBJZCI6ImZhY3RvciIsImFkbWluIjoiNTYwOTQ1NDdjYTA4ZmIxMzIzNzVlMWUzIiwidHlwZSI6ImFkbWluIiwidXNlciI6bnVsbCwiaWF0IjoxNDU3NzEzNjI3LCJleHAiOjE0NTc3MTU0Mjd9.YRsEFdYi26nIfk0ME8RTd_szlkA_4wETRIAOK8xJa6I",
+          //   "accept": "application/json"
+          // },
+  				url : Constants.DB.url + '/cobject/v1/knowledgeobject?populate=true&page=1&per_page='+data.page+'',
+          params : {
+            koowner : data.koowner
+          }
+  			})
+  			.success(function (data, status, headers, config) {
+          console.log(data);
+  				deffered.resolve(data);
+  			})
+  			.error(function (data, status, headers, config) {
+          console.log(data);
+  				deffered.reject(data);
+  			});
+  			return deffered.promise;
       }
     }
 
