@@ -20,3 +20,7 @@ a.logout {
   color: white;
   text-decoration: none;
 }
+
+a.logout:hover {
+  color: white !important;
+}
