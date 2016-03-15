@@ -18,9 +18,10 @@ a.logout {
   padding-top: 10px;
   display: block;
   color: white;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a.logout:hover {
   color: white !important;
+  text-decoration: none !important;
 }
