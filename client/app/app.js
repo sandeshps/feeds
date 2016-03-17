@@ -21,6 +21,7 @@ angular.module('feedsApp', [
         }
     }
 })
+
 .filter('filterparagraph', function() {
   return function (input) {
    //  console.log(input);
