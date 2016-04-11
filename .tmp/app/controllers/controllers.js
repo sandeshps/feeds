@@ -69,6 +69,7 @@ angular.module('feedsApp').controller('LoginCtrl', function ($scope, $timeout, $
   $scope.loaded_key_value = false;
   function getKeyValuePairs() {
     Stamplay.Object('keyvalues').get({}).then(function (response) {
+
       temp = response.data;
 
       $scope.$apply(function () {
@@ -311,11 +312,15 @@ angular.module('feedsApp').controller('LoginCtrl', function ($scope, $timeout, $
     object.source = details.source;
     object.koowner = koowner;
     object.url = details.url;
+    object.profileImg = details.profileImg;
+    object.user = details.user;
+    object.time = details.time;
     object.status = 'approved';
     console.log(object);
     Admin.approveData(object).then(function (response) {
       // $scope.$apply();
       // acceptReject();
+      alert("approved");
       console.log(response);
     })['catch'](function (error) {});
     // $scope.$apply();

@@ -1,5 +1,5 @@
-<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-  <div class='data-fetch'>
+
+  
     <label>
       Select
     </label>
@@ -15,7 +15,7 @@
       </ul>
     </div>
 
-    <div class='data-holder'>
+    
       <div class='text-align-center col-lg-12 col-md-12 col-sm-12 col-xs-12' ng-show='loading'>
         <img src='../assets/images/loading_text.gif'/>
         <!-- <img src='../assets/images/loader.gif'/> -->
@@ -25,28 +25,50 @@
           Error fetching the data. Please try again!
         </h2>
       </div>
-      <div class='cards-holder col-lg-12 col-md-12 col-sm-12 col-xs-12' ng-hide='loading'>
-        <div class='each-card' ng-repeat='data in allData'>
-          <img ng-if="data.source === 'instagram'" ng-src='{{data.image.url}}'/>
-          <img ng-if="data.source !== 'instagram'" ng-src='{{data.image}}'/>
-          <h1>
-            <a href='{{data.url}}' target="_blank">
-              {{data.title.substring(0,100)}}
-            </a>
-          </h1>
-          <p>
-            {{data.description.substring(0,150)}}
-          </p>
-          <p>
-            <b>Source:</b> {{data.source}}
-          </p>
-          <div class='float-right accept-reject'>
-            <img ng-if="data.status !== 'approved'" ng-src='../assets/images/accept.png' ng-click='approve(data);'/>
-            <!-- <img ng-if="data.status === 'approved'" ng-src='../assets/images/reject.png' ng-click='reject(data);'/> -->
-          </div>
-        </div>
-      </div>
-    </div>
+      <div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+          
+            <ul class="grid effect-1" masonry> 
 
-  </div>
+
+                <li ng-repeat='data in allData' class="masonry-brick">
+                    <div class="text-center">
+                        <div class="service-box">
+                            <div class="post_img"> 
+                              <img ng-if="data.source === 'instagram'" ng-src='{{data.image.url}}'/>
+                              <img ng-if="data.source !== 'instagram'" ng-src='{{data.image}}'/>
+
+                                <div class="social_icon"><img src="assets/img/in.png" alt="twitter" />
+                                </div>
+                            </div>
+                            <h3> <a href='{{data.url}}' target="_blank">
+                        {{data.title.substring(0,100)}}
+                      </a></h3>
+                            <div class="col-lg-4 col-xs-4 small_head">{{data.time}}</div>
+                            <div class="col-lg-8 col-xs-8 small_head2">
+                                <div class="username">@{{data.user}}</div>
+                                <div class="blogger_icon">
+                                    <img src="{{data.profileImg}}" alt="blogger" />
+                                </div>
+                            </div>
+
+                            <p class="text-muted">{{data.description.substring(0,150)}}</p>
+                            <p>
+                            <b>Source:</b> {{data.source}}
+                          </p>
+                          <div class='float-right accept-reject'>
+                            <img ng-if="data.status !== 'approved'" ng-src='../assets/images/accept.png' ng-click='approve(data);'/>
+                            <!-- <img ng-if="data.status === 'approved'" ng-src='../assets/images/reject.png' ng-click='reject(data);'/> -->
+                          </div>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
+    
+
+  

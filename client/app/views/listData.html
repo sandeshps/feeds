@@ -1,32 +1,85 @@
-<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-  <div class='data-fetch'>
-
-    <div class='data-holder'>
-      <div class='text-align-center col-lg-12 col-md-12 col-sm-12 col-xs-12' ng-show='loading'>
-        <img src='../assets/images/loading_text.gif'/>
-      </div>
-      <div class='error-message' ng-show='error'>
-        <h2>
-          Error fetching the data. Please try again!
-        </h2>
-      </div>
-      <div class='cards-holder col-lg-12 col-md-12 col-sm-12 col-xs-12' ng-hide='loading'>
-        <div class='each-card' ng-repeat='data in allData'>
-          <img ng-src='{{data.image}}'/>
-          <h1>
-            <a href='{{data.url}}' target="_blank">
-              {{data.title.substring(0,100)}}
-            </a>
-          </h1>
-          <p>
-            {{data.description.substring(0,150)}}
-          </p>
-          <p>
-            <b>Source:</b> {{data.source}}
-          </p>
+<navbar></navbar>
+<header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                
+                <p>Introductory line of copy goes here to tell people what this is all about.</br> There can be also be a second line or a subscribe box.</p>
+                <!--<a href="#about" class="btn btn-primary btn-xl page-scroll">Subscribe Now</a>-->
+            </div>
         </div>
-      </div>
-    </div>
+    </header>
+<section id="services">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <ul class="grid effect-1 visible-lg-block" masonry> 
+                <li ng-repeat='data in allData' class="masonry-brick">
+                      <div class="text-center">
+                        <div class="service-box">
+                            <div class="post_img">
+                                <img ng-src='{{data.image}}'/>
+                               
 
-  </div>
+                                <div class="social_icon"><img src="assets/img/in.png" alt="twitter" />
+                                </div>
+                            </div>
+                            <h3> <a href='{{data.url}}' target="_blank">
+                        {{data.title.substring(0,100)}}
+                      </a></h3>
+                            <div class="col-lg-4 col-xs-4 small_head">{{data.time}}</div>
+                            <div class="col-lg-8 col-xs-8 small_head2">
+                                <div class="username">@{{data.user}}</div>
+                                <div class="blogger_icon">
+                                    <img ng-if="data.profileImg != ''" src="{{data.profileImg}}" alt="blogger" />
+                                    <img ng-if="data.profileImg == ''" src="assets/img/blogger.png" alt="blogger" />
+                                </div>
+                            </div>
+
+                            <p class="text-muted" hashing="data.description.substring(0,150)"></p>
+                            <!--<p class="text-muted">
+                              <b>Source:</b> {{data.source}}
+                            </p>-->
+                                
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+            <ul class="grid effect-1 visible-sm-block visible-md-block" hj-scrollify='data in allData'> 
+                <li>
+                      <div class="text-center">
+                        <div class="service-box">
+                            <div class="post_img">
+                                <img ng-src='{{data.image}}'/>
+                               
+
+                                <div class="social_icon"><img src="assets/img/in.png" alt="twitter" />
+                                </div>
+                            </div>
+                            <h3> <a href='{{data.url}}' target="_blank">
+                        {{data.title.substring(0,100)}}
+                      </a></h3>
+                            <div class="col-lg-4 col-xs-4 small_head">{{data.time}}</div>
+                            <div class="col-lg-8 col-xs-8 small_head2">
+                                <div class="username">@{{data.user}}</div>
+                                <div class="blogger_icon">
+                                    <img ng-if="data.profileImg != ''" src="{{data.profileImg}}" alt="blogger" />
+                                    <img ng-if="data.profileImg == ''" src="assets/img/blogger.png" alt="blogger" />
+                                </div>
+                            </div>
+
+                            <p class="text-muted" hashing="data.description.substring(0,150)"></p>
+                            <!--<p class="text-muted">
+                              <b>Source:</b> {{data.source}}
+                            </p>
+                                -->
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+
+        </div>
+    </div>
 </div>
+</section>

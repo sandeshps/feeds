@@ -8,7 +8,9 @@ angular.module('feedsApp', [
   'ngRoute',
   'ui.router',
   'ui.bootstrap',
-  'once'
+  'once',
+  'wu.masonry',
+  'hj.scrollify'
 ])
 .directive('bindOnce', function() {
     return {
@@ -21,6 +23,22 @@ angular.module('feedsApp', [
         }
     }
 })
+
+.directive('hashing', function() {
+    return {
+        scope: {
+            hashing:'='
+        },
+        link: function( scope, element ) {
+          
+          scope.$watch('hashing',function(text){
+              if(text)
+                element.html(text.replace(/#[a-z0-1A-Z]+/g, '<span class="style_tag">$&</span>'));
+          })               
+        }
+    }
+})
+
 
 .filter('filterparagraph', function() {
   return function (input) {
@@ -89,13 +107,13 @@ angular.module('feedsApp', [
 
 
 var checkIfLoggedin = function($q, User, $location, $cookies) {
-	var deferred = $q.defer();
-	if($cookies.get('email') !== '' && $cookies.get('email') !== undefined) {
-		deferred.resolve();
-		$location.path('/admin');
-	}
-	else {
-		deferred.reject();
-		$location.path('/login');
-	}
+        var deferred = $q.defer();
+        if($cookies.get('email') !== '' && $cookies.get('email') !== undefined) {
+                deferred.resolve();
+                $location.path('/admin');
+        }
+        else {
+                deferred.reject();
+                $location.path('/login');
+        }
 }

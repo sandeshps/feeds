@@ -90,6 +90,7 @@
         Stamplay.Object('keyvalues')
           .get({})
             .then(function(response) {
+
               temp = response.data;
 
               $scope.$apply(function () {
@@ -175,6 +176,7 @@
             $scope.allhandles = $scope.handle_sources_array;
           });
           console.log($scope.allhandles);
+
         }
       });
 
@@ -396,12 +398,16 @@
         object.source = details.source;
         object.koowner = koowner;
         object.url = details.url;
+        object.profileImg = details.profileImg;
+        object.user = details.user;
+        object.time = details.time;
         object.status = 'approved';
         console.log(object);
         Admin.approveData(object)
           .then(function (response) {
             // $scope.$apply();
             // acceptReject();
+            alert("approved");
             console.log(response);
 
           })

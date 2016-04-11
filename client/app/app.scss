@@ -17,6 +17,19 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 // Component styles are injected through grunt
 // injector
 @import 'main/main.scss';
+@import 'views/font-awesome/scss/_animated.scss';
+@import 'views/font-awesome/scss/_bordered-pulled.scss';
+@import 'views/font-awesome/scss/_core.scss';
+@import 'views/font-awesome/scss/_fixed-width.scss';
+@import 'views/font-awesome/scss/_icons.scss';
+@import 'views/font-awesome/scss/_larger.scss';
+@import 'views/font-awesome/scss/_list.scss';
+@import 'views/font-awesome/scss/_mixins.scss';
+@import 'views/font-awesome/scss/_path.scss';
+@import 'views/font-awesome/scss/_rotated-flipped.scss';
+@import 'views/font-awesome/scss/_stacked.scss';
+@import 'views/font-awesome/scss/_variables.scss';
+@import 'views/font-awesome/scss/font-awesome.scss';
 @import '../components/footer/footer.scss';
 @import '../components/modal/modal.scss';
 // endinjector

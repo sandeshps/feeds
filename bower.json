@@ -15,7 +15,9 @@
     "font-awesome": ">=4.1.0",
     "lodash": "~2.4.1",
     "angular-ui-router": "^0.2.18",
-    "angular-once": "^0.1.9"
+    "angular-once": "^0.1.9",
+    "angular-masonry":"*",
+	"angular-scrollify":"*"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.0"

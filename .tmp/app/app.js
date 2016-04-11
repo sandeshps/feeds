@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('feedsApp', ['feedsApp.constants', 'ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'ui.router', 'ui.bootstrap', 'once']).directive('bindOnce', function () {
+angular.module('feedsApp', ['feedsApp.constants', 'ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'ui.router', 'ui.bootstrap', 'once', 'wu.masonry', 'hj.scrollify']).directive('bindOnce', function () {
   return {
     scope: true,
     link: function link($scope, $element) {
@@ -8,6 +8,18 @@ angular.module('feedsApp', ['feedsApp.constants', 'ngCookies', 'ngResource', 'ng
         $scope.$destroy();
         $element.removeClass('ng-binding ng-scope');
       }, 0);
+    }
+  };
+}).directive('hashing', function () {
+  return {
+    scope: {
+      hashing: '='
+    },
+    link: function link(scope, element) {
+
+      scope.$watch('hashing', function (text) {
+        if (text) element.html(text.replace(/#[a-z0-1A-Z]+/g, '<span class="style_tag">$&</span>'));
+      });
     }
   };
 }).filter('filterparagraph', function () {

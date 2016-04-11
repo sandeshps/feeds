@@ -35,7 +35,8 @@ angular.module('feedsApp')
           //   "x-stamplay-jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcHBJZCI6ImZhY3RvciIsImFkbWluIjoiNTYwOTQ1NDdjYTA4ZmIxMzIzNzVlMWUzIiwidHlwZSI6ImFkbWluIiwidXNlciI6bnVsbCwiaWF0IjoxNDU3NzEzNjI3LCJleHAiOjE0NTc3MTU0Mjd9.YRsEFdYi26nIfk0ME8RTd_szlkA_4wETRIAOK8xJa6I",
           //   "accept": "application/json"
           // },
-  				url : Constants.DB.url + '/cobject/v1/knowledgeobject?populate=true&page=1&per_page='+data.page+'',
+  				//url : Constants.DB.url + '/cobject/v1/knowledgeobject?populate=true&page=1&per_page='+data.page+'',
+          url : Constants.DB.url + '/cobject/v1/knowledgeobject?populate=true&page=1&per_page=100',
           params : {
             koowner : data.koowner
           }

@@ -5,11 +5,14 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <meta name="author" content="">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <base href="/">
-    <title></title>
+    <title>Home Canvas Mag</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+   
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
@@ -20,20 +23,67 @@
     <link rel='stylesheet' href='assets/styles/admin-header.css'>
     <link rel='stylesheet' href='assets/styles/login.css'>
     <link rel='stylesheet' href='bower_components/angular-bootstrap/ui-bootstrap-csp.css'>
+
     <!-- build:css({.tmp,client}) app/app.css -->
       <link rel="stylesheet" href="app/app.css">
+
       <!-- injector:css -->
+     <!-- <link rel="stylesheet" href="app/views/css/animate.min.css">
+      <link rel="stylesheet" href="app/views/css/bootstrap.css">
+      <link rel="stylesheet" href="app/views/css/bootstrap.min.css">
+      <link rel="stylesheet" href="app/views/css/creative.css">
+      <link rel="stylesheet" href="app/views/font-awesome/css/font-awesome.css">
+      <link rel="stylesheet" href="app/views/font-awesome/css/font-awesome.min.css">-->
       <!-- endinjector -->
     <!-- endbuild -->
+   
+<link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
 
-  <body ng-app="feedsApp">
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="assets/css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/creative.css" type="text/css">
+    <!--<link rel="stylesheet" type="text/css" href="assets/css/default.css" />-->
+    <link rel="stylesheet" type="text/css" href="assets/css/component.css" />
+     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.css">
+      <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+    
+  </head>
+
+
+  <body ng-app="feedsApp" id="page-top">
     <!--[if lt IE 7]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
     <!-- <navbar></navbar> -->
-    <div ng-view=""></div>
+
+   
+
+
+
+
+  
+              <div ng-view=""></div>
+
+
+
+
+
+
     <!-- <footer></footer> -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -53,8 +103,21 @@
     <![endif]-->
     <!-- build:js({client,node_modules}) app/vendor.js -->
       <!-- bower:js -->
-      <script src="../bower_components/jquery/dist/jquery.js"></script>
-      <script src="../bower_components/angular/angular.js"></script>
+
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/jquery-bridget/jquery-bridget.js"></script>
+  <script src="../bower_components/ev-emitter/ev-emitter.js"></script>
+  <script src="../bower_components/desandro-matches-selector/matches-selector.js"></script>
+  <script src="../bower_components/fizzy-ui-utils/utils.js"></script>
+  <script src="../bower_components/get-size/get-size.js"></script>
+  <script src="../bower_components/outlayer/item.js"></script>
+  <script src="../bower_components/outlayer/outlayer.js"></script>
+  <script src="../bower_components/masonry/masonry.js"></script>
+  <script src="../bower_components/imagesloaded/imagesloaded.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-masonry/angular-masonry.js"></script>
+
+     
       <script src="../bower_components/angular-resource/angular-resource.js"></script>
       <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
       <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
@@ -63,19 +126,54 @@
       <script src="../bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="../bower_components/angular-once/once.js"></script>
+     
+     
+      
+      
+     
+      
+
+
+
+      <script src="../bower_components/jquery/dist/jquery.js"></script>
+      <script src="app/lib/jquery.scrollify.min.js"></script>
+  <script src="../bower_components/jquery-bridget/jquery-bridget.js"></script>
+  <script src="../bower_components/ev-emitter/ev-emitter.js"></script>
+  <script src="../bower_components/desandro-matches-selector/matches-selector.js"></script>
+  <script src="../bower_components/fizzy-ui-utils/utils.js"></script>
+  <script src="../bower_components/get-size/get-size.js"></script>
+  <script src="../bower_components/outlayer/item.js"></script>
+  <script src="../bower_components/outlayer/outlayer.js"></script>
+  <script src="../bower_components/masonry/masonry.js"></script>
+  <script src="../bower_components/hammerjs/hammer.js"></script>
+      <script src="../bower_components/hamsterjs/hamster.js"></script>
+      <script src="../bower_components/lethargy/lethargy.js"></script>
+      <script src="../bower_components/angular-scrollify/angular-scrollify.js"></script>
+  <script src="../bower_components/imagesloaded/imagesloaded.js"></script>
+ 
+
       <!-- endbower -->
-      <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- endbuild -->
     <!-- build:js(.tmp) app/app.js -->
       <script src="app/app.js"></script>
       <!-- injector:js -->
       <script src="components/util/util.module.js"></script>
-      <script src="components/footer/footer.directive.js"></script>
+      <script src="app/views/js/creative.js"></script>
       <script src="app/controllers/controllers.js"></script>
       <script src="app/main/main.controller.js"></script>
       <script src="app/main/main.js"></script>
       <script src="app/services/services.js"></script>
+      <script src="app/views/js/bootstrap.js"></script>
+      <script src="app/views/js/bootstrap.min.js"></script>
+      <script src="app/views/js/cbpAnimatedHeader.js"></script>
+      <script src="app/views/js/classie.js"></script>
       <script src="app/constants/constants.js"></script>
+      <script src="app/views/js/jquery.easing.min.js"></script>
+      <script src="app/views/js/jquery.fittext.js"></script>
+      <script src="app/views/js/jquery.js"></script>
+      <script src="app/views/js/wow.min.js"></script>
+      <script src="components/footer/footer.directive.js"></script>
       <script src="components/modal/modal.service.js"></script>
       <script src="components/navbar/navbar.controller.js"></script>
       <script src="components/navbar/navbar.directive.js"></script>
@@ -85,5 +183,6 @@
     <!-- endbuild -->
     <script src="//drrjhlchpvi7e.cloudfront.net/libs/stamplay-js-sdk/2.0.2/stamplay.min.js"></script>
     <script> Stamplay.init("feeds"); </script>
+    
   </body>
 </html>
