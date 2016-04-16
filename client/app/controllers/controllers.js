@@ -87,8 +87,15 @@
       $scope.allKeyValues = [];
       $scope.loaded_key_value = false;
       function getKeyValuePairs() {
+        var query = {
+         per_page : 100
+        
+      }
         Stamplay.Object('keyvalues')
-          .get({})
+          .get(query, function(err, res) {
+            if(err) return console.log(err);
+            console.log(res);
+          })
             .then(function(response) {
 
               temp = response.data;
@@ -260,8 +267,15 @@
       getKeyValuePairs();
 
       function getKeyValuePairs() {
+        var query = {
+         per_page : 100
+        
+      }
         Stamplay.Object('keyvalues')
-          .get({})
+          .get(query, function(err, res) {
+            if(err) return console.log(err);
+            console.log(res);
+          })
             .then(function(response) {
               response.data.forEach(function (row) {
                 keyValues.push(row.key + ' - ' + row.value);

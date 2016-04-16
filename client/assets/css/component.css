@@ -213,12 +213,16 @@
 
 @media screen and (max-width: 900px) {
 	.grid li {
-		width: 50%;
+		width: 100%;
+		overflow:hidden;
 	}
+	
 }
 
 @media screen and (max-width: 400px) {
 	.grid li {
 		width: 100%;
+		overflow:hidden;
 	}
+	
 }

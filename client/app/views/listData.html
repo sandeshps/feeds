@@ -3,7 +3,7 @@
         <div class="header-content">
             <div class="header-content-inner">
                 
-                <p>Introductory line of copy goes here to tell people what this is all about.</br> There can be also be a second line or a subscribe box.</p>
+                <p>The Home Canvas Mag is a curated guide to great furniture and home interiors. We put together the latest design trends, news from local designers & stores, DIY guides and much much more.</br>Published daily, this is your never ending feed of Interior Design mojo!</p>
                 <!--<a href="#about" class="btn btn-primary btn-xl page-scroll">Subscribe Now</a>-->
             </div>
         </div>
@@ -12,26 +12,31 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <ul class="grid effect-1 visible-lg-block" masonry> 
-                <li ng-repeat='data in allData' class="masonry-brick">
+            <ul class="grid effect-1" masonry> 
+               <li ng-repeat='data in allData' class="masonry-brick">
+                     <a href='{{data.url}}' target="_blank">
                       <div class="text-center">
                         <div class="service-box">
                             <div class="post_img">
                                 <img ng-src='{{data.image}}'/>
                                
 
-                                <div class="social_icon"><img src="assets/img/in.png" alt="twitter" />
+                                <div class="social_icon">
+                                     <img ng-if="data.source == 'facebook'" src="assets/img/facebook_icon.png" alt="blogger" />
+                                     <img ng-if="data.source == 'twitter'" src="assets/img/twitter_icon.png" alt="blogger" />
+                                     <img ng-if="data.source == 'instagram'" src="assets/img/instagram_icon.png" alt="blogger" />
+                                    
                                 </div>
                             </div>
-                            <h3> <a href='{{data.url}}' target="_blank">
+                            <h3 style="font-weight:bold"> 
                         {{data.title.substring(0,100)}}
-                      </a></h3>
+                      </h3>
                             <div class="col-lg-4 col-xs-4 small_head">{{data.time}}</div>
                             <div class="col-lg-8 col-xs-8 small_head2">
-                                <div class="username">@{{data.user}}</div>
+                                <div class="username">@{{data.user}}   </div>
                                 <div class="blogger_icon">
                                     <img ng-if="data.profileImg != ''" src="{{data.profileImg}}" alt="blogger" />
-                                    <img ng-if="data.profileImg == ''" src="assets/img/blogger.png" alt="blogger" />
+                                   
                                 </div>
                             </div>
 
@@ -42,10 +47,10 @@
                                 
                         </div>
                     </div>
-
+                    </a>
                 </li>
             </ul>
-            <ul class="grid effect-1 visible-sm-block visible-md-block" hj-scrollify='data in allData'> 
+            <!--<ul class="grid effect-1 visible-sm-block" hj-scrollify='data in allData'> 
                 <li>
                       <div class="text-center">
                         <div class="service-box">
@@ -72,12 +77,12 @@
                             <!--<p class="text-muted">
                               <b>Source:</b> {{data.source}}
                             </p>
-                                -->
+                                
                         </div>
                     </div>
 
                 </li>
-            </ul>
+            </ul>-->
 
         </div>
     </div>

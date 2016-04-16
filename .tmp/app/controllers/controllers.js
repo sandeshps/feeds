@@ -68,7 +68,14 @@ angular.module('feedsApp').controller('LoginCtrl', function ($scope, $timeout, $
   $scope.allKeyValues = [];
   $scope.loaded_key_value = false;
   function getKeyValuePairs() {
-    Stamplay.Object('keyvalues').get({}).then(function (response) {
+    var query = {
+      per_page: 100
+
+    };
+    Stamplay.Object('keyvalues').get(query, function (err, res) {
+      if (err) return console.log(err);
+      console.log(res);
+    }).then(function (response) {
 
       temp = response.data;
 
@@ -201,7 +208,14 @@ angular.module('feedsApp').controller('LoginCtrl', function ($scope, $timeout, $
   getKeyValuePairs();
 
   function getKeyValuePairs() {
-    Stamplay.Object('keyvalues').get({}).then(function (response) {
+    var query = {
+      per_page: 100
+
+    };
+    Stamplay.Object('keyvalues').get(query, function (err, res) {
+      if (err) return console.log(err);
+      console.log(res);
+    }).then(function (response) {
       response.data.forEach(function (row) {
         keyValues.push(row.key + ' - ' + row.value);
       });
